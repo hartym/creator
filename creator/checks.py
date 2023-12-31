@@ -80,10 +80,11 @@ if __name__ == "__main__":
     c = BinaryAvailableCheck("pnpmxs", min_version="8", limit_version="9")
     c.check()
     print(c.context)
+
 pnpm_is_available = BinaryAvailableCheck(
     "pnpm", min_version="8.13", limit_version="9.0"
 )
-npx_is_available = BinaryAvailableCheck("npx", min_version="9.8", limit_version="10.0")
+npx_is_available = BinaryAvailableCheck("npx", min_version="9.8", limit_version="11.0")
 prettier_is_available = BinaryAvailableCheck(
     "prettier", min_version="3.1", limit_version="3.2"
 )

@@ -18,4 +18,4 @@ Quickstart
 
     brew install pipx
     pipx ensurepath
-    pipx run --spec git+https://github.com/hartym/creator.git@main creator
+    pipx run --spec git+https://github.com/hartym/creator.git@main creator <project_name>
