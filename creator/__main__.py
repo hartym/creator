@@ -1,3 +1,4 @@
+import re
 import os.path
 import subprocess
 from string import Template
@@ -24,7 +25,22 @@ def init(project_name):
     initial = {
         "PROJECT_NAME": project_name,
     }
+    if not re.match(r"^[a-z0-9_-]+$", project_name):
+        click.echo(
+            f"Invalid project name «{project_name}». Project names must contains alphanumeric, dashes and underscores "
+            f"only. Please choose a different name."
+        )
+        return
+
     click.echo(f"Creating project {project_name}.")
+
+    if os.path.exists(project_name):
+        click.echo(f"Directory {project_name} already exists.")
+        if click.confirm("Do you want to erase it?"):
+            subprocess.run(f"rm -rf {project_name}", shell=True, check=True)
+        else:
+            return
+
     for step in steps:
         for check in step.checks:
             click.echo(f"Checking {check.name}...")

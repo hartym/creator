@@ -7,7 +7,6 @@ generate_vite_project = Script(
         pnpm_is_available,
     ],
     steps=[
-        "rm -rf ${PROJECT_NAME}",
         "${PNPM} create vite --template react-ts ${PROJECT_NAME}",
         "(cd ${PROJECT_NAME} && ${PNPM} install)",
         TextFile("${PROJECT_NAME}/src/Styles/main.css", "", mkdir=True),
