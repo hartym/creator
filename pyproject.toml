@@ -3,7 +3,7 @@ name = "creator"
 version = "0.1.0"
 description = ""
 authors = ["Romain Dorgueil <romain@makersquad.fr>"]
-readme = "README.md"
+readme = "README.rst"
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -14,6 +14,9 @@ pyjson5 = "^1.6.5"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.12.1"
+
+[tool.poetry.scripts]
+creator = 'creator.__main__:init'
 
 [build-system]
 requires = ["poetry-core"]
