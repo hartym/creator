@@ -32,3 +32,13 @@ After a while, you can run:
     pnpm storybook:preview
 
 Enjoy.
+
+To do list
+::::::::::
+
+* install and bootstrap react-query (optional ?)
+* add a test suite with examples and entrypoints for the target project
+* add a test suite for the project itself, to validate it continues running with upstream updates
+* push to ci/cd
+* add a backend (optional ?)
+* add options for non obvious choices (python backend, ...)
