@@ -32,15 +32,17 @@ class BinaryAvailableCheck:
         self.min_version = parse_version(min_version) if min_version else None
         self.limit_version = parse_version(limit_version) if limit_version else None
 
+        self.checked = False
+
     def check(self):
         upper_name = self.name.upper()
         if not upper_name in self.context:
             self.context[upper_name] = self._get_target()
-        print(f"  {self.name} found at {self.context[upper_name]}")
         if not upper_name + "_VERSION" in self.context:
             self.context[upper_name + "_VERSION"] = self._get_version(
                 self.context[upper_name]
             )
+        self.checked = True
 
     def _get_version(self, target):
         """Parse the version as the binary gave it to us, compare to version constraints and retrun normalized version

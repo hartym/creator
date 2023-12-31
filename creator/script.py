@@ -39,7 +39,9 @@ class TextFile:
         path = Template(self.path).substitute(context)
 
         if self.mkdir:
-            subprocess.run(["mkdir", "-p", os.path.dirname(path)], check=True)
+            subprocess.run(
+                ["mkdir", "-p", os.path.dirname(path)], check=True, capture_output=True
+            )
 
         with open(path, "w") as f:
             f.write(self.content)
@@ -60,4 +62,4 @@ class JsonFileModify:
             pyjson5.dump(content, f)
             f.write(b"\n")
 
-        subprocess.run(["prettier", "--write", path], check=True)
+        subprocess.run(["prettier", "--write", path], check=True, capture_output=True)
